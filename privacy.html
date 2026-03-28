@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waypoint | Privacy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0f1419;
+      --card:     #1a1f26;
+      --amber:    #f5a623;
+      --amber-dim:#c4831a;
+      --muted:    #8899a6;
+      --text:     #e8eaed;
+      --border:   #2a3340;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--amber); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .wordmark {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber);
+      text-decoration: none;
+    }
+    .wordmark:hover { text-decoration: none; }
+
+    .header-badge {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--bg);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+    }
+
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    .content h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .last-updated {
+      font-size: 0.82rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      margin-bottom: 2.75rem;
+      padding-bottom: 2.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .content h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-top: 2.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .content p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .content p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .content ul {
+      list-style: none;
+      margin-bottom: 1rem;
+    }
+
+    .content ul li {
+      color: var(--muted);
+      padding: 0.2rem 0 0.2rem 1.25rem;
+      position: relative;
+    }
+
+    .content ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--border);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.82rem;
+    }
+
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--amber); }
+
+    @media (max-width: 540px) {
+      header { padding: 1rem 1.25rem; }
+      .content { padding: 3rem 1.25rem 4rem; }
+      footer { padding: 1.5rem 1.25rem; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" style="position:absolute;left:-9999px">Skip to main content</a>
+
+  <header>
+    <a href="/" class="wordmark">Waypoint</a>
+    <span class="header-badge">Coming to Android</span>
+  </header>
+
+  <main id="main-content">
+    <div class="content">
+      <h1>Privacy</h1>
+      <p class="last-updated">Last updated: March 28, 2026</p>
+
+      <p>Waypoint is developed and operated by Garrett Elias. This policy explains what information we collect, how we use it, and your rights regarding your data.</p>
+
+      <h2>Information We Collect</h2>
+      <p><strong>Account information</strong><br>
+      When you create an account, we collect your email address. If you sign in with Google, we also receive your name and profile information from Google.</p>
+      <p><strong>Trip and waypoint data</strong><br>
+      We store the content you create in the app: trip names, waypoint names, coordinates, shooting time windows, and notes. This data is associated with your account and stored securely in the cloud.</p>
+
+      <h2>How We Use Your Information</h2>
+      <p>We use your information solely to provide the app's functionality:</p>
+      <ul>
+        <li>To create and maintain your account</li>
+        <li>To store and sync your trips and waypoints across sessions</li>
+        <li>To send transactional emails such as account confirmation and password reset</li>
+      </ul>
+      <p>We do not sell your data. We do not use your data for advertising. We do not share your data with third parties except as described below.</p>
+
+      <h2>Third-Party Services</h2>
+      <p><strong>Supabase</strong> — provides database and authentication infrastructure. Your data is stored on Supabase servers. <a href="https://supabase.com/privacy">Supabase Privacy Policy</a></p>
+      <p><strong>Resend</strong> — delivers transactional emails (account confirmation, password reset) from noreply@mail.waypoint.photo. <a href="https://resend.com/legal/privacy-policy">Resend Privacy Policy</a></p>
+      <p><strong>OpenStreetMap / Nominatim</strong> — provides map tiles and location search. When you search for a location, your search query is sent to Nominatim. No personal information is transmitted. <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Privacy Policy</a></p>
+
+      <h2>Data Retention</h2>
+      <p>Your data is retained as long as your account exists. You may delete your account and all associated data by contacting us at <a href="mailto:contact@waypoint.photo?subject=Waypoint%20data%20deletion%20request">contact@waypoint.photo</a>. We will process deletion requests within 30 days.</p>
+
+      <h2>Children's Privacy</h2>
+      <p>Waypoint is not directed at children under 13. We do not knowingly collect personal information from children under 13.</p>
+
+      <h2>Changes to This Policy</h2>
+      <p>We may update this policy as the app evolves. We will update the "Last updated" date at the top of this page when changes are made. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy or your data? Email <a href="mailto:contact@waypoint.photo?subject=Waypoint%20privacy%20question">contact@waypoint.photo</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <span class="footer-left">© 2026 Garrett Elias</span>
+    <nav class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/credits">Credits</a>
+      <a href="mailto:contact@waypoint.photo?subject=Waypoint%20app%20inquiry">Contact</a>
+    </nav>
+  </footer>
+
+</body>
+</html>

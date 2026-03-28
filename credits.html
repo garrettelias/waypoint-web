@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Waypoint | Credits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0f1419;
+      --card:     #1a1f26;
+      --amber:    #f5a623;
+      --muted:    #8899a6;
+      --text:     #e8eaed;
+      --border:   #2a3340;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--amber); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .wordmark {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--amber);
+      text-decoration: none;
+    }
+    .wordmark:hover { text-decoration: none; }
+
+    .header-badge {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--bg);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 2px;
+    }
+
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 4rem 2rem 5rem;
+    }
+
+    .content h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+
+    .intro {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 2.75rem;
+      padding-bottom: 2.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .content h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-top: 2.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .credit-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.1rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .credit-item:last-of-type {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .credit-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .credit-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+    }
+
+    .credit-name a { color: var(--text); }
+    .credit-name a:hover { color: var(--amber); }
+
+    .credit-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .credit-license {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.5rem;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .service-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 1.1rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .service-item:last-of-type {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .service-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+    }
+
+    .service-name a { color: var(--text); }
+    .service-name a:hover { color: var(--amber); }
+
+    .service-desc {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .flutter-section {
+      margin-top: 2.75rem;
+      padding-top: 2.75rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left { font-size: 0.82rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.25rem; font-size: 0.82rem; }
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--amber); }
+
+    @media (max-width: 540px) {
+      header { padding: 1rem 1.25rem; }
+      .content { padding: 3rem 1.25rem 4rem; }
+      footer { padding: 1.5rem 1.25rem; flex-direction: column; align-items: flex-start; }
+      .credit-item { flex-direction: column; gap: 0.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" style="position:absolute;left:-9999px">Skip to main content</a>
+
+  <header>
+    <a href="/" class="wordmark">Waypoint</a>
+    <span class="header-badge">Coming to Android</span>
+  </header>
+
+  <main id="main-content">
+    <div class="content">
+      <h1>Credits &amp; Licenses</h1>
+      <p class="intro">Waypoint is built with a handful of open source libraries and third-party services. Thank you to the teams who make them available.</p>
+
+      <h2>Open Source Libraries</h2>
+
+      <div class="credit-item">
+        <div class="credit-left">
+          <span class="credit-name"><a href="https://github.com/fleaflet/flutter_map" target="_blank" rel="noopener">flutter_map</a></span>
+          <span class="credit-desc">Interactive map rendering for Flutter.</span>
+        </div>
+        <span class="credit-license">BSD 3-Clause</span>
+      </div>
+
+      <div class="credit-item">
+        <div class="credit-left">
+          <span class="credit-name"><a href="https://github.com/hilaglanz/latlong2" target="_blank" rel="noopener">latlong2</a></span>
+          <span class="credit-desc">Latitude/longitude coordinate utilities for Dart.</span>
+        </div>
+        <span class="credit-license">Apache 2.0</span>
+      </div>
+
+      <div class="credit-item">
+        <div class="credit-left">
+          <span class="credit-name"><a href="https://github.com/supabase/supabase-flutter" target="_blank" rel="noopener">supabase_flutter</a></span>
+          <span class="credit-desc">Flutter client for Supabase.</span>
+        </div>
+        <span class="credit-license">MIT</span>
+      </div>
+
+      <div class="credit-item">
+        <div class="credit-left">
+          <span class="credit-name"><a href="https://github.com/flutter/packages" target="_blank" rel="noopener">google_sign_in</a></span>
+          <span class="credit-desc">Google Sign-In for Flutter.</span>
+        </div>
+        <span class="credit-license">BSD 3-Clause</span>
+      </div>
+
+      <div class="credit-item">
+        <div class="credit-left">
+          <span class="credit-name"><a href="https://github.com/flutter/packages" target="_blank" rel="noopener">url_launcher</a></span>
+          <span class="credit-desc">Opens URLs in the default browser or app.</span>
+        </div>
+        <span class="credit-license">BSD 3-Clause</span>
+      </div>
+
+      <div class="credit-item">
+        <div class="credit-left">
+          <span class="credit-name"><a href="https://github.com/java-james/flutter_dotenv" target="_blank" rel="noopener">flutter_dotenv</a></span>
+          <span class="credit-desc">Loads environment variables from a .env file.</span>
+        </div>
+        <span class="credit-license">MIT</span>
+      </div>
+
+      <div class="credit-item">
+        <div class="credit-left">
+          <span class="credit-name"><a href="https://github.com/fluttercommunity/plus_plugins" target="_blank" rel="noopener">package_info_plus</a></span>
+          <span class="credit-desc">Provides app version and build information.</span>
+        </div>
+        <span class="credit-license">BSD 3-Clause</span>
+      </div>
+
+      <div class="credit-item">
+        <div class="credit-left">
+          <span class="credit-name"><a href="https://github.com/dart-lang/http" target="_blank" rel="noopener">http</a></span>
+          <span class="credit-desc">HTTP client for Dart.</span>
+        </div>
+        <span class="credit-license">BSD 3-Clause</span>
+      </div>
+
+      <h2>Services &amp; Data</h2>
+
+      <div class="service-item">
+        <span class="service-name"><a href="https://supabase.com" target="_blank" rel="noopener">Supabase</a></span>
+        <span class="service-desc">Database, authentication, and backend infrastructure.</span>
+      </div>
+
+      <div class="service-item">
+        <span class="service-name"><a href="https://resend.com" target="_blank" rel="noopener">Resend</a></span>
+        <span class="service-desc">Transactional email delivery.</span>
+      </div>
+
+      <div class="service-item">
+        <span class="service-name"><a href="https://www.openstreetmap.org" target="_blank" rel="noopener">OpenStreetMap</a></span>
+        <span class="service-desc">Map data © OpenStreetMap contributors, available under the <a href="https://www.openstreetmap.org/copyright">Open Database License</a>.</span>
+      </div>
+
+      <div class="service-item">
+        <span class="service-name"><a href="https://nominatim.org" target="_blank" rel="noopener">Nominatim</a></span>
+        <span class="service-desc">Location search and geocoding.</span>
+      </div>
+
+      <div class="flutter-section">
+        Built with <a href="https://flutter.dev" target="_blank" rel="noopener">Flutter</a> by Google.
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <span class="footer-left">© 2026 Garrett Elias</span>
+    <nav class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/credits">Credits</a>
+      <a href="mailto:contact@waypoint.photo?subject=Waypoint%20app%20inquiry">Contact</a>
+    </nav>
+  </footer>
+
+</body>
+</html>
