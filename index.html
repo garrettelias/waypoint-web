@@ -42,6 +42,10 @@
       justify-content: space-between;
       padding: 1.25rem 2rem;
       border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 100;
     }
 
     .wordmark {
@@ -68,19 +72,24 @@
       border-radius: 2px;
     }
 
-    /* ── MAIN LAYOUT ── */
-    .main-grid {
+    /* ── MAIN TWO-COLUMN LAYOUT ── */
+    .hero-wrap {
       max-width: 1100px;
       margin: 0 auto;
       padding: 4rem 2rem 5rem;
       display: grid;
-      grid-template-columns: 1fr 380px;
+      grid-template-columns: 1fr 1fr;
       gap: 4rem;
       align-items: center;
-      min-height: calc(100vh - 65px - 65px);
+      min-height: calc(100vh - 64px);
     }
 
     /* ── LEFT COLUMN ── */
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+    }
+
     .hero-eyebrow {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 0.8rem;
@@ -101,37 +110,43 @@
       margin-bottom: 1.25rem;
     }
 
-    .hero-body {
+    .hero-desc {
       font-size: 1rem;
       color: var(--muted);
-      margin-bottom: 2rem;
       line-height: 1.7;
-      max-width: 480px;
+      margin-bottom: 2rem;
     }
 
-    .hero-body strong {
+    .hero-desc strong {
       color: var(--text);
       font-weight: 500;
     }
 
-    /* ── FEATURE LIST ── */
+    /* Feature list */
     .feature-list {
       list-style: none;
       display: flex;
       flex-direction: column;
+      gap: 0;
       margin-bottom: 2.25rem;
     }
 
     .feature-list li {
       display: flex;
-      gap: 1.1rem;
-      padding: 1.1rem 0;
+      gap: 1rem;
+      padding: 1rem 0;
       border-bottom: 1px solid var(--border);
       align-items: flex-start;
+      transition: opacity 0.3s;
+      opacity: 0.4;
     }
 
     .feature-list li:first-child {
       border-top: 1px solid var(--border);
+    }
+
+    .feature-list li.active {
+      opacity: 1;
     }
 
     .feature-num {
@@ -142,15 +157,16 @@
       color: var(--amber);
       padding-top: 0.25rem;
       min-width: 1.5rem;
+      transition: color 0.3s;
     }
 
     .feature-text {
       font-size: 0.95rem;
       color: var(--text);
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
-    /* ── CTA ── */
+    /* CTA */
     .cta-group {
       display: flex;
       align-items: center;
@@ -164,81 +180,62 @@
       color: var(--bg);
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 0.75rem 1.75rem;
+      padding: 0.75rem 1.6rem;
       border-radius: 3px;
       transition: background 0.15s;
     }
     .btn-primary:hover { background: var(--amber-dim); text-decoration: none; }
 
     .cta-note {
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       color: var(--muted);
     }
 
-    /* ── RIGHT COLUMN: PHONE + CAROUSEL ── */
-    .screenshot-col {
+    /* ── RIGHT COLUMN — SCREENSHOT CAROUSEL ── */
+    .hero-right {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1.25rem;
     }
 
-    .phone-frame {
+    /* Frameless screenshot display */
+    .screenshot-window {
       width: 100%;
       max-width: 320px;
-      aspect-ratio: 9 / 19.5;
-      background: #0a0d10;
-      border-radius: 36px;
-      border: 2px solid #3a4450;
-      box-shadow:
-        0 0 0 1px #1a2028,
-        0 24px 64px rgba(0,0,0,0.6),
-        inset 0 0 0 1px #0a0d10;
+      aspect-ratio: 9 / 16;
       overflow: hidden;
       position: relative;
     }
 
-    /* Notch */
-    .phone-frame::before {
-      content: '';
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 20px;
-      background: #0a0d10;
-      border-radius: 10px;
-      z-index: 10;
-    }
-
-    .carousel-track {
+    .screenshot-track {
       display: flex;
-      width: 100%;
+      width: 400%;
       height: 100%;
-      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .carousel-slide {
-      flex: 0 0 100%;
+    .screenshot-slide {
+      width: 25%;
       height: 100%;
+      flex-shrink: 0;
+      background: var(--card);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: var(--card);
     }
 
-    .carousel-slide img {
+    .screenshot-slide img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .slide-placeholder {
+    .screenshot-placeholder {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -247,16 +244,44 @@
       text-align: center;
     }
 
-    .slide-placeholder svg {
+    .screenshot-placeholder svg {
       opacity: 0.15;
     }
 
-    .slide-placeholder span {
+    .screenshot-placeholder .slide-label {
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 0.7rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--border);
+    }
+
+    /* Caption below screenshot — mobile only */
+    .screenshot-caption {
+      max-width: 320px;
+      width: 100%;
+      min-height: 3.5rem;
+      display: none;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .caption-num {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--amber);
+      padding-top: 0.15rem;
+      min-width: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .caption-text {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.55;
+      transition: opacity 0.3s;
     }
 
     /* Carousel controls */
@@ -267,18 +292,17 @@
     }
 
     .carousel-btn {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
+      background: var(--card);
       border: 1px solid var(--border);
-      background: transparent;
       color: var(--muted);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: border-color 0.15s, color 0.15s;
-      padding: 0;
     }
 
     .carousel-btn:hover {
@@ -287,13 +311,8 @@
     }
 
     .carousel-btn svg {
-      width: 14px;
-      height: 14px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      width: 13px;
+      height: 13px;
     }
 
     .carousel-dots {
@@ -307,10 +326,8 @@
       height: 6px;
       border-radius: 50%;
       background: var(--border);
-      transition: background 0.2s, transform 0.2s;
       cursor: pointer;
-      border: none;
-      padding: 0;
+      transition: background 0.2s, transform 0.2s;
     }
 
     .dot.active {
@@ -318,10 +335,28 @@
       transform: scale(1.3);
     }
 
+    /* Progress bar under screenshot */
+    .progress-bar {
+      max-width: 320px;
+      width: 100%;
+      height: 2px;
+      background: var(--border);
+      border-radius: 1px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--amber);
+      border-radius: 1px;
+      width: 0%;
+      transition: width linear;
+    }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
-      padding: 1.5rem 2rem;
+      padding: 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -335,24 +370,39 @@
     .footer-links a:hover { color: var(--amber); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 800px) {
-      .main-grid {
+    @media (max-width: 768px) {
+      .hero-wrap {
         grid-template-columns: 1fr;
         gap: 2.5rem;
-        padding: 3rem 1.25rem 4rem;
+        padding: 2.5rem 1.25rem 4rem;
         min-height: unset;
       }
 
-      .screenshot-col {
-        order: -1;
-      }
-
-      .phone-frame {
+      .screenshot-window {
         max-width: 240px;
       }
 
+      .screenshot-caption {
+        display: flex;
+        max-width: 240px;
+      }
+
+      .progress-bar {
+        max-width: 240px;
+      }
+
+      /* Hide feature list on mobile — caption does that job */
+      .feature-list {
+        display: none;
+      }
+
+      footer {
+        padding: 1.5rem 1.25rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       header { padding: 1rem 1.25rem; }
-      footer { padding: 1.5rem 1.25rem; flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
@@ -366,30 +416,32 @@
   </header>
 
   <main id="main-content">
-    <div class="main-grid">
+    <div class="hero-wrap">
 
       <!-- LEFT: copy + features + CTA -->
-      <div class="hero">
-        <p class="hero-eyebrow">For photographers who plan before they shoot</p>
-        <h1>The plan that's still in&nbsp;your pocket when you get&nbsp;there.</h1>
-        <p class="hero-body">
-          Waypoint is a field planning tool for photographers. Each stop on your shoot is a <strong>waypoint</strong> — a pinned location, a light window, and your own notes, ready before you leave the house. Navigate stop to stop. Log what worked.
-        </p>
+      <div class="hero-left">
+        <div class="hero">
+          <p class="hero-eyebrow">For photographers who plan before they shoot</p>
+          <h1>The plan that's still in&nbsp;your pocket when you get&nbsp;there.</h1>
+          <p class="hero-desc">
+            Waypoint is a field planning tool for photographers. Each stop on your shoot is a <strong>waypoint</strong> — a pinned location, a light window, and your own notes, ready before you leave the house. Navigate stop to stop. Log what worked.
+          </p>
+        </div>
 
-        <ul class="feature-list">
-          <li>
+        <ul class="feature-list" id="featureList">
+          <li data-index="0" class="active">
             <span class="feature-num">01</span>
             <span class="feature-text">Plan your shoot as a sequence of waypoints — location, timing, and notes locked in before you leave.</span>
           </li>
-          <li>
+          <li data-index="1">
             <span class="feature-num">02</span>
             <span class="feature-text">Arrive at the right time — build shooting windows into each waypoint so the light you planned for is the light you get.</span>
           </li>
-          <li>
+          <li data-index="2">
             <span class="feature-num">03</span>
             <span class="feature-text">Move fluidly between stops on a multi-location shoot without losing your place or your plan.</span>
           </li>
-          <li>
+          <li data-index="3">
             <span class="feature-num">04</span>
             <span class="feature-text">Track outcomes at each waypoint and build a personal record of your most successful shooting spots.</span>
           </li>
@@ -401,62 +453,59 @@
         </div>
       </div>
 
-      <!-- RIGHT: phone frame + carousel -->
-      <div class="screenshot-col">
-        <div class="phone-frame">
-          <div class="carousel-track" id="carouselTrack">
+      <!-- RIGHT: frameless screenshot + caption + controls -->
+      <div class="hero-right">
 
-            <div class="carousel-slide">
-              <!-- Replace with: <img src="images/screenshot-1.jpg" alt="Waypoint trips list" /> -->
-              <div class="slide-placeholder">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
-                <span>Trips list</span>
-              </div>
+        <div class="screenshot-window">
+          <div class="screenshot-track" id="screenshotTrack">
+
+            <div class="screenshot-slide">
+              <img src="images/screenshot-1.webp" alt="Trips list" />
             </div>
 
-            <div class="carousel-slide">
-              <!-- Replace with: <img src="images/screenshot-2.jpg" alt="Trip detail" /> -->
-              <div class="slide-placeholder">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
-                <span>Trip detail</span>
-              </div>
+            <div class="screenshot-slide">
+              <img src="images/screenshot-2.webp" alt="Trip detail" />
             </div>
 
-            <div class="carousel-slide">
-              <!-- Replace with: <img src="images/screenshot-3.jpg" alt="Waypoint detail" /> -->
-              <div class="slide-placeholder">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
-                <span>Waypoint detail</span>
-              </div>
+            <div class="screenshot-slide">
+              <img src="images/screenshot-3.webp" alt="Waypoint detail" />
             </div>
 
-            <div class="carousel-slide">
-              <!-- Replace with: <img src="images/screenshot-4.jpg" alt="Log outcome" /> -->
-              <div class="slide-placeholder">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/></svg>
-                <span>Log outcome</span>
-              </div>
+            <div class="screenshot-slide">
+              <img src="images/screenshot-4.webp" alt="Log outcome" />
             </div>
 
           </div>
         </div>
 
+        <!-- Progress bar -->
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <!-- Synced caption -->
+        <div class="screenshot-caption" id="screenshotCaption">
+          <span class="caption-num" id="captionNum">01</span>
+          <span class="caption-text" id="captionText">Plan your shoot as a sequence of waypoints — location, timing, and notes locked in before you leave.</span>
+        </div>
+
+        <!-- Controls -->
         <div class="carousel-controls">
           <button class="carousel-btn" id="prevBtn" aria-label="Previous screenshot">
-            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,2 4,7 9,12"/></svg>
           </button>
           <div class="carousel-dots" id="carouselDots">
-            <button class="dot active" aria-label="Screenshot 1"></button>
-            <button class="dot" aria-label="Screenshot 2"></button>
-            <button class="dot" aria-label="Screenshot 3"></button>
-            <button class="dot" aria-label="Screenshot 4"></button>
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+            <div class="dot" data-index="3"></div>
           </div>
           <button class="carousel-btn" id="nextBtn" aria-label="Next screenshot">
-            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="5,2 10,7 5,12"/></svg>
           </button>
         </div>
-      </div>
 
+      </div>
     </div>
   </main>
 
@@ -470,28 +519,100 @@
   </footer>
 
   <script>
-    const track = document.getElementById('carouselTrack');
-    const dots = document.querySelectorAll('.dot');
-    const total = dots.length;
-    let current = 0;
+    const track       = document.getElementById('screenshotTrack');
+    const dots        = document.querySelectorAll('.dot');
+    const bullets     = document.querySelectorAll('#featureList li');
+    const captionNum  = document.getElementById('captionNum');
+    const captionText = document.getElementById('captionText');
+    const prevBtn     = document.getElementById('prevBtn');
+    const nextBtn     = document.getElementById('nextBtn');
+    const progressFill = document.getElementById('progressFill');
 
-    function goTo(index) {
-      current = (index + total) % total;
-      track.style.transform = `translateX(-${current * 100}%)`;
+    const TOTAL    = 4;
+    const INTERVAL = 5000; // 5 seconds
+    let current    = 0;
+    let autoTimer  = null;
+    let progressTimer = null;
+
+    const captions = [
+      { num: '01', text: 'Plan your shoot as a sequence of waypoints — location, timing, and notes locked in before you leave.' },
+      { num: '02', text: 'Arrive at the right time — build shooting windows into each waypoint so the light you planned for is the light you get.' },
+      { num: '03', text: 'Move fluidly between stops on a multi-location shoot without losing your place or your plan.' },
+      { num: '04', text: 'Track outcomes at each waypoint and build a personal record of your most successful shooting spots.' },
+    ];
+
+    function goTo(index, userInitiated = false) {
+      current = (index + TOTAL) % TOTAL;
+
+      // Slide track
+      track.style.transform = `translateX(-${current * 25}%)`;
+
+      // Dots
       dots.forEach((d, i) => d.classList.toggle('active', i === current));
+
+      // Feature bullets
+      bullets.forEach((b, i) => b.classList.toggle('active', i === current));
+
+      // Caption
+      captionNum.textContent  = captions[current].num;
+      captionText.textContent = captions[current].text;
+
+      // Reset auto-scroll timer if user interacted
+      if (userInitiated) {
+        clearInterval(autoTimer);
+        clearTimeout(progressTimer);
+        startAutoScroll();
+      }
+
+      // Reset progress bar
+      startProgress();
     }
 
-    document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
-    document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
-    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+    function startProgress() {
+      progressFill.style.transition = 'none';
+      progressFill.style.width = '0%';
+      // Force reflow
+      progressFill.offsetWidth;
+      progressFill.style.transition = `width ${INTERVAL}ms linear`;
+      progressFill.style.width = '100%';
+    }
 
-    // Swipe support
-    let startX = 0;
-    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    function startAutoScroll() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => {
+        goTo(current + 1);
+      }, INTERVAL);
+      startProgress();
+    }
+
+    // Controls
+    prevBtn.addEventListener('click', () => goTo(current - 1, true));
+    nextBtn.addEventListener('click', () => goTo(current + 1, true));
+    dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.index, true)));
+
+    // Swipe
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
     track.addEventListener('touchend', e => {
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1, true);
+    }, { passive: true });
+
+    // Pause on hover (desktop)
+    track.addEventListener('mouseenter', () => {
+      clearInterval(autoTimer);
+      clearTimeout(progressTimer);
+      progressFill.style.transition = 'none';
     });
+    track.addEventListener('mouseleave', () => {
+      startAutoScroll();
+    });
+
+    // Kick off
+    goTo(0);
+    startAutoScroll();
   </script>
 
 </body>
